@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    float a, b, c, x1, x2, diskriminan, bagianReal, bagianImajiner;
+    cout << "Bentuk umum dari persamaan kuadrat adalah\n ax^2+bx+c=0, dengan a tidak sama dengan 0.\n Masukkan nilai dari a, b, dan c untuk mengetahui nilai akar-akar persamaannya :\n a   :";
+    cin >> a;
+    cout << "b  :";
+    cin >> b;
+    cout << "c  :";
+    cin >> c;
+    diskriminan = b * b - 4 * a * c;
+
+    if (a == 0) {
+        cout << "Kan dah dibilangin jangan a = 0 :|.";
+    }
+
+    else
+        if (diskriminan > 0) {
+            x1 = (-b - sqrt(diskriminan)) / (2 * a);
+            x2 = (-b + sqrt(diskriminan)) / (2 * a);
+            cout << "Akar-akar persamaannya merupakan bilangan real dan memiliki nilai yang berbeda.\n";
+            cout << "x = {" << x1 << ", " << x2 << "}.\n";
+        }
+        else
+            if (diskriminan == 0) {
+                x1 = (-b) / (2 * a);
+                cout << "Akar-akar persamaannya merupakan bilangan real dan memiliki nilai yang sama.\n";
+                cout << "x = {" << x1 << "}.\n";
+            }
+            else {
+                bagianReal = (-b) / (2 * a);
+                bagianImajiner = sqrt(-diskriminan) / (2 * a);
+                cout << "Akar-akar persamaannya merupakan bilangan kompleks dan memiliki nilai yang berbeda.\n";
+                cout << "x = {" << bagianReal << "+" << bagianImajiner << "i, " << bagianReal << "-" << bagianImajiner << "i}.";
+            }
+    return 0;
+}
